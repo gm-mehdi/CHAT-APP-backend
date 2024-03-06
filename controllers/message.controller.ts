@@ -30,7 +30,6 @@ export const sendMessage = async (req: any, res: Response) => {
         }
 
         // TODO: SOCKET IO FUNCTIONNALITY WILL BE HERE
-
         //save the conversation and the messages in database
         // await conversation.save();
         // await newMessage.save();
