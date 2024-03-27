@@ -5,6 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run server",
     "server": "nodemon server.ts"
   },
   "keywords": [],
