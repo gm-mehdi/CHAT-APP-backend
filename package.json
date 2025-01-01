@@ -4,11 +4,11 @@
   "description": "",
   "main": "dist/server.js",
   "engines": {
-    "node": "20.12.0"
+    "node": "20"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.ts",
+    "start": "ts-node server.ts",
     "server": "nodemon server.ts",
     "build": "tsc"
   },
