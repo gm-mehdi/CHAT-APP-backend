@@ -16,7 +16,10 @@ dotenv.config();
 
 app.use(express.json()); // to parse the incoming request with JSON payload from req.body
 app.use(cookieParser());
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000', // Specify the frontend's origin
+    credentials: true,              // Allow cookies and authentication headers
+}));
 
 
 app.use("/api/auth", authRoutes)

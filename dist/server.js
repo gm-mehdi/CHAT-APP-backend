@@ -16,7 +16,10 @@ const PORT = process.env.PORT || 5000;
 dotenv_1.default.config();
 socket_1.app.use(express_1.default.json()); // to parse the incoming request with JSON payload from req.body
 socket_1.app.use((0, cookie_parser_1.default)());
-socket_1.app.use((0, cors_1.default)());
+socket_1.app.use((0, cors_1.default)({
+    origin: 'http://localhost:3000', // Specify the frontend's origin
+    credentials: true, // Allow cookies and authentication headers
+}));
 socket_1.app.use("/api/auth", auth_routes_1.default);
 socket_1.app.use("/api/messages", message_routes_1.default);
 socket_1.app.use("/api/users", user_routes_1.default);
