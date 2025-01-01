@@ -8,9 +8,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node server.ts",
+    "start": "node dist/server.js",
     "server": "nodemon server.ts",
-    "build": "tsc && cp package.json dist/"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
