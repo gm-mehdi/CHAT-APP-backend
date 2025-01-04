@@ -10,21 +10,24 @@ import connectMongoDB from './db/connectMongoDb';
 import { app, server } from './socket/socket';
 
 import cors from 'cors';
+import protectRoute from './middleware/protectRoute';
 const PORT = process.env.PORT || 5000;
 
 dotenv.config();
 
-app.use(express.json()); // to parse the incoming request with JSON payload from req.body
-app.use(cookieParser());
 app.use(cors({
     origin: 'http://localhost:3000', // Specify the frontend's origin
-    credentials: true,              // Allow cookies and authentication headers
+    credentials: true,   
+               // Allow cookies and authentication headers
 }));
+app.use(express.json()); // to parse the incoming request with JSON payload from req.body
+app.use(cookieParser());
 
 
 app.use("/api/auth", authRoutes)
 app.use("/api/messages", messageRoutes)
-app.use("/api/users", userRoutes)
+app.use("/api/users", protectRoute, userRoutes);
+
 
 // app.get('/', (req: Request, res: Response) => {
 //     res.send('Hello World!');
